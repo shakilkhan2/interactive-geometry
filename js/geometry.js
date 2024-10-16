@@ -97,7 +97,7 @@ const parallelogramAreaIs = () => {
   const parallelogramArea = parallelogramBase * parallelogramHeight;
   const resultField = document.getElementById("result-field");
   const listItem = document.createElement("li");
-  listItem.innerHTML = `Parallelogram area = ${parallelogramArea}`;
+  listItem.innerHTML = `Parallelogram area = ${parallelogramArea} cm`;
   resultField.appendChild(listItem);
 
   document.getElementById("parallelogram-base").value = "";
