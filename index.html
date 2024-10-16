@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geometry Genious</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="bg-[#E7F4FB] m-10 p-4 rounded-md flex items-center justify-between"
+      >
+        <div class="text-gray-600">
+          <h2 class="font-bold text-3xl">Interactive</h2>
+          <p class="text-2xl">Geometry Genious</p>
+        </div>
+        <div>
+          <button
+            class="bg-sky-400 text-white font-semibold rounded-md py-1 px-6"
+          >
+            Blog
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="flex justify-between flex-col-reverse md:flex-row">
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <!-- triangle -->
+          <div
+            class="card text-gray-600 text-center border border-gray-200 shadow-lg rounded-md m-10 w-auto md:w-80 p-6"
+          >
+            <img
+              class="h-40 m-auto pb-6"
+              src="./media/triangle.png"
+              alt="a yeallow triangle"
+            />
+            <h1 class="text-2xl font-bold">Triangle</h1>
+            <p>Area(A) = 0.5 x b x h</p>
+            <div class="pt-4">
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                placeholder="b"
+                id="triangle-base"
+                min="0"
+              />
+              cm
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                name=""
+                id="triangle-height"
+                min="0"
+                placeholder="h"
+              />
+              cm
+            </div>
+            
+            <div class="pt-6">
+              <button onclick="triangleArea()" class="bg-sky-400 px-24  py-2 rounded-md text-white">
+              Calculate
+            </button>
+            </div>
+            <p id="err-field" class="text-red-700 text-sm"></p>
+          </div>
+          <!-- rectangle -->
+          <div
+            class="card text-gray-600 text-center border border-gray-200 rounded-md m-10 w-auto md:w-80 p-6"
+          >
+            <img
+              class="h-40 m-auto pb-6"
+              src="./media/rectangle.png"
+              alt="a rectangle"
+            />
+            <h1 class="text-2xl font-bold">Rectangle</h1>
+            <p>Area(A) = w x l</p>
+            <div class="pt-4">
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                placeholder="w"
+                min="0"
+                id="rectangular-width"
+              />
+              cm
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                name=""
+                id="rectangular-length"
+                min="0"
+                placeholder="l"
+              />
+              cm
+            </div>
+            <button onclick="rectangleArea()" class="bg-sky-400 px-24 mt-6 py-2 rounded-md text-white">
+              Calculate
+            </button>
+          </div>
+          <!-- parallelogram -->
+          <div
+            class="card text-gray-600 text-center border border-gray-200 rounded-md m-10 w-auto md:w-80 p-6"
+          >
+            <img
+              class="h-40 m-auto pb-6"
+              src="./media/parallelogram.png"
+              alt="a parallelogram"
+            />
+            <h1 class="text-2xl font-bold">Parallelogram</h1>
+            <p>Area(A) = b x h</p>
+            <div class="pt-4">
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                placeholder="b"
+                min="0"
+              />
+              cm
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                name=""
+                id=""
+                min="0"
+                placeholder="h"
+              />
+              cm
+            </div>
+            <button class="bg-sky-400 px-24 mt-6 py-2 rounded-md text-white">
+              Calculate
+            </button>
+          </div>
+          <!-- rhombus -->
+          <div
+            class="card text-gray-600 text-center border border-gray-200 rounded-md m-10 w-auto md:w-80 p-6"
+          >
+            <img
+              class="h-40 m-auto pb-6"
+              src="./media/rhombus.png"
+              alt="a rhombus"
+            />
+            <h1 class="text-2xl font-bold">Rhombus</h1>
+            <p>Area(A) = 0.5 x d1 x d2</p>
+            <div class="pt-4">
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                placeholder="d1"
+                min="0"
+              />
+              cm
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                name=""
+                id=""
+                min="0"
+                placeholder="d2"
+              />
+              cm
+            </div>
+            <button class="bg-sky-400 px-24 mt-6 py-2 rounded-md text-white">
+              Calculate
+            </button>
+          </div>
+          <!-- pentagon -->
+          <div
+            class="card text-gray-600 text-center border border-gray-200 rounded-md m-10 w-auto md:w-80 p-6"
+          >
+            <img
+              class="h-40 m-auto pb-6"
+              src="./media/pentagon.png"
+              alt="a pentagon"
+            />
+            <h1 class="text-2xl font-bold">Pentagon</h1>
+            <p>Area(A) = 0.5 x p x b</p>
+            <div class="pt-4">
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                placeholder="p"
+                min="0"
+              />
+              cm
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                name=""
+                id=""
+                min="0"
+                placeholder="b"
+              />
+              cm
+            </div>
+            <button class="bg-sky-400 px-24 mt-6 py-2 rounded-md text-white">
+              Calculate
+            </button>
+          </div>
+          <!-- ellipse -->
+          <div
+            class="card text-gray-600 text-center border border-gray-200 rounded-md m-10 w-auto md:w-80 p-6"
+          >
+            <img
+              class="h-40 m-auto pb-6"
+              src="./media/ellipse.png"
+              alt="a ellipse"
+            />
+            <h1 class="text-2xl font-bold">Ellipse</h1>
+            <p>Area(A) = π<span class="text-sm">ab</span></p>
+            <div class="pt-4">
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                placeholder="a"
+                min="0"
+              />
+              cm
+              <input
+                class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
+                type="number"
+                name=""
+                id=""
+                min="0"
+                placeholder="b"
+              />
+              cm
+            </div>
+            <button class="bg-sky-400 px-24 mt-6 py-2 rounded-md text-white">
+              Calculate
+            </button>
+          </div>
+        </div>
+        </div>
+        <!-- Area calculation -->
+        <div class="text-gray-600 bg-slate-1-00 text-center border border-gray-200 rounded-md m-10 md:h-80 w-auto md:w-80 p-6">
+          <p class="text-lg font-semibold text-gray-600 underline">
+            Area Calculation
+          </p>
+          <div>
+           <ul  id="result-field" class="text-amber-600 font-semibold list-decimal px-8"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="./js/geometry.js"></script>
+  </body>
+</html>
