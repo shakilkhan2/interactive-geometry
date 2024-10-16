@@ -98,6 +98,7 @@
             <button onclick="rectangleArea()" class="bg-sky-400 px-24 mt-6 py-2 rounded-md text-white">
               Calculate
             </button>
+            <p id="err-field-2" class="text-red-700 text-sm"></p>
           </div>
           <!-- parallelogram -->
           <div
@@ -116,21 +117,23 @@
                 type="number"
                 placeholder="b"
                 min="0"
+                id="parallelogram-base"
               />
               cm
               <input
                 class="w-20 bg-[#F1F1F1] pl-2 rounded-sm border border-gray-300"
                 type="number"
                 name=""
-                id=""
+                id="parallelogram-height"
                 min="0"
                 placeholder="h"
               />
               cm
             </div>
-            <button class="bg-sky-400 px-24 mt-6 py-2 rounded-md text-white">
+            <button onclick="parallelogramAreaIs()" class="bg-sky-400 px-24 mt-6 py-2 rounded-md text-white">
               Calculate
             </button>
+            <p id="err-field-3" class="text-red-700 text-sm"></p>
           </div>
           <!-- rhombus -->
           <div
@@ -235,7 +238,7 @@
         </div>
         <!-- Area calculation -->
         <div class="text-gray-600 bg-slate-1-00 text-center border border-gray-200 rounded-md m-10 md:h-80 w-auto md:w-80 p-6">
-          <p class="text-lg font-semibold text-gray-600 underline">
+          <p class=" font-semibold text-gray-600 underline">
             Area Calculation
           </p>
           <div>

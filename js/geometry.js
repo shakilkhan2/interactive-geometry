@@ -18,7 +18,7 @@ const triangleArea = () => {
     triangleBase <= 0 ||
     triangleHeight <= 0
   ) {
-    errMsg.innerHTML = "provide positive value";
+    errMsg.innerHTML = "Please provide valid value";
     errMsg.style.display = "block";
     document.getElementById("triangle-base").value = "";
     document.getElementById("triangle-height").value = "";
@@ -45,15 +45,65 @@ const triangleArea = () => {
 const rectangleArea = () => {
   const rectangleWidth = getInputValue("rectangular-width");
   const rectanglelength = getInputValue("rectangular-length");
+
+  // vadidation and displing error msg
+  const errMsg = document.getElementById("err-field-2");
+  if (
+    isNaN(rectangleWidth) ||
+    isNaN(rectanglelength) ||
+    rectangleWidth <= 0 ||
+    rectanglelength <= 0
+  ) {
+    errMsg.innerText = "Please provide valid input.";
+    document.getElementById("rectangular-width").value = "";
+    document.getElementById("rectangular-length").value = "";
+    return;
+  }
+  errMsg.innerText = "";
+
   const rectangleArea = rectangleWidth * rectanglelength;
-  // console.log(triangleArea);
 
   const resultField = document.getElementById("result-field");
   const listItem = document.createElement("li");
   listItem.innerHTML = `Rectangle area = ${rectangleArea}`;
-
+  // clear the input field
+  document.getElementById("rectangular-width").value = "";
+  document.getElementById("rectangular-length").value = "";
   resultField.appendChild(listItem);
 };
+
+// Area Calculation parallelogram
+const parallelogramAreaIs = () => {
+  const parallelogramBase = getInputValue("parallelogram-base");
+  const parallelogramHeight = getInputValue("parallelogram-height");
+
+  // validation and display error msg
+  const errfield = document.getElementById("err-field-3");
+  if (
+    isNaN(parallelogramBase) ||
+    isNaN(parallelogramHeight) ||
+    parallelogramBase <= 0 ||
+    parallelogramHeight <= 0
+  ) {
+    errfield.innerText = "Please provide valid input.";
+
+    document.getElementById("parallelogram-base").value = "";
+    document.getElementById("parallelogram-height").value = "";
+    return;
+  }
+
+  errfield.innerText = "";
+
+  const parallelogramArea = parallelogramBase * parallelogramHeight;
+  const resultField = document.getElementById("result-field");
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `Parallelogram area = ${parallelogramArea}`;
+  resultField.appendChild(listItem);
+
+  document.getElementById("parallelogram-base").value = "";
+  document.getElementById("parallelogram-height").value = "";
+};
+
 // adding random color
 const colors = [
   "bg-blue-500",
