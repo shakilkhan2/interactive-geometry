@@ -33,7 +33,7 @@ const triangleArea = () => {
 
   const resultField = document.getElementById("result-field");
   const listItem = document.createElement("li");
-  listItem.innerHTML = `Triangle area = ${triangleArea}`;
+  listItem.innerHTML = `Triangle area = ${triangleArea} cm<sup>2</sup>`;
 
   document.getElementById("triangle-base").value = "";
   document.getElementById("triangle-height").value = "";
@@ -65,7 +65,7 @@ const rectangleArea = () => {
 
   const resultField = document.getElementById("result-field");
   const listItem = document.createElement("li");
-  listItem.innerHTML = `Rectangle area = ${rectangleArea}`;
+  listItem.innerHTML = `Rectangle area = ${rectangleArea} cm<sup>2</sup>`;
   // clear the input field
   document.getElementById("rectangular-width").value = "";
   document.getElementById("rectangular-length").value = "";
@@ -97,13 +97,103 @@ const parallelogramAreaIs = () => {
   const parallelogramArea = parallelogramBase * parallelogramHeight;
   const resultField = document.getElementById("result-field");
   const listItem = document.createElement("li");
-  listItem.innerHTML = `Parallelogram area = ${parallelogramArea} cm`;
+  listItem.innerHTML = `Parallelogram area = ${parallelogramArea} cm<sup>2</sup>`;
   resultField.appendChild(listItem);
 
   document.getElementById("parallelogram-base").value = "";
   document.getElementById("parallelogram-height").value = "";
 };
 
+// Area calculation rhombos
+const rhombosAreaIs = () => {
+  const rhombosDiagonal1 = getInputValue("rhombos-diagonal1");
+  const rhombosDiagonal2 = getInputValue("rhombos-diagonal2");
+
+  // validation and display error msg
+  const errfield = document.getElementById("err-field-4");
+  if (
+    isNaN(rhombosDiagonal1) ||
+    isNaN(rhombosDiagonal2) ||
+    rhombosDiagonal1 <= 0 ||
+    rhombosDiagonal2 <= 0
+  ) {
+    errfield.innerText = "Please provide valid input.";
+
+    document.getElementById("rhombos-diagonal1").value = "";
+    document.getElementById("rhombos-diagonal2").value = "";
+    return;
+  }
+
+  errfield.innerText = "";
+
+  const rhombosArea = 0.5 * rhombosDiagonal1 * rhombosDiagonal2;
+  const resultField = document.getElementById("result-field");
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `Rhombos area = ${rhombosArea} cm<sup>2</sup>`;
+  resultField.appendChild(listItem);
+
+  document.getElementById("rhombos-diagonal1").value = "";
+  document.getElementById("rhombos-diagonal2").value = "";
+};
+
+// Area calculation Pentagon
+const pentagonAreaIs = () => {
+  const pentagonPerimeter = getInputValue("pentagon-p");
+  const pentagonApothem = getInputValue("pentagon-a");
+
+  // validation and display error msg
+  const errfield = document.getElementById("err-field-5");
+  if (
+    isNaN(pentagonPerimeter) ||
+    isNaN(pentagonApothem) ||
+    pentagonPerimeter <= 0 ||
+    pentagonApothem <= 0
+  ) {
+    errfield.innerText = "Please provide valid input.";
+
+    document.getElementById("pentagon-p").value = "";
+    document.getElementById("pentagon-a").value = "";
+    return;
+  }
+
+  errfield.innerText = "";
+
+  const pentagonArea = 0.5 * pentagonPerimeter * pentagonApothem;
+  const resultField = document.getElementById("result-field");
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `Pentagon area = ${pentagonArea} cm<sup>2</sup>`;
+  resultField.appendChild(listItem);
+
+  document.getElementById("pentagon-p").value = "";
+  document.getElementById("pentagon-a").value = "";
+};
+
+// Area calculation Ellipse
+const ellipseAreaIs = () => {
+  const ellipseA = getInputValue("ellipse-a");
+  const ellipseB = getInputValue("ellipse-b");
+
+  // validation and display error msg
+  const errfield = document.getElementById("err-field-6");
+  if (isNaN(ellipseA) || isNaN(ellipseB) || ellipseA <= 0 || ellipseB <= 0) {
+    errfield.innerText = "Please provide valid input.";
+
+    document.getElementById("ellipse-a").value = "";
+    document.getElementById("ellipse-b").value = "";
+    return;
+  }
+
+  errfield.innerText = "";
+
+  const ellipseArea = 3.1416 * ellipseA * ellipseB;
+  const resultField = document.getElementById("result-field");
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `Ellipse area = ${ellipseArea} cm<sup>2</sup>`;
+  resultField.appendChild(listItem);
+
+  document.getElementById("ellipse-a").value = "";
+  document.getElementById("ellipse-b").value = "";
+};
 // adding random color
 const colors = [
   "bg-blue-500",
